@@ -32,6 +32,8 @@ func (p *Parser) nextToken() {
 	p.peekToken = p.l.NextToken()
 }
 
+// error
+
 func (p *Parser) Errors() []string {
 	return p.errors
 }
@@ -40,6 +42,8 @@ func (p *Parser) peekError(t token.TokenType) {
 	msg := fmt.Sprintf("expected next token to be %s, got %s instead", t, p.peekToken.Type)
 	p.errors = append(p.errors, msg)
 }
+
+// parse
 
 func (p *Parser) ParseProgram() *ast.Program {
 	program := &ast.Program{}
